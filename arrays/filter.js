@@ -6,4 +6,14 @@ let result = numbers
 .filter(item => item > 6)
 .map(item => item * 2);
 
-console.log(result);
+
+//Задача:
+//получить массив имён (name) только активных пользователей.
+const users = [
+  { id: 1, name: 'Anna', active: true },
+  { id: 2, name: 'Bob', active: false },
+  { id: 3, name: 'Kate', active: true },
+];
+let activeUsersNames = users
+.filter(item => item.active)
+.map(item => item.name);
