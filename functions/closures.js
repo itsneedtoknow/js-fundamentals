@@ -43,3 +43,44 @@ return function(){
 }
 let secret = createSecret('booo');
 console.log(secret())
+
+
+
+//Напиши функцию createSafe(password).
+//Она возвращает функцию, которая принимает один аргумент — attempt (попытка).
+//Если attempt совпадает с password, верни true.
+//Если не совпадает — false
+
+function createSafe(password){
+    
+    return function(attempt){
+        if(attempt === password){
+            return true
+        }else{
+            return false
+        }
+    }
+}
+let mousePass=createSafe('mouse');
+console.log(mousePass('mouse'))
+// Написать функцию bind, которая будет принимать объект с данными человека 
+// и функцию logPerson логирования его в системе
+
+// function logPerson(){
+//     console.log(`Person: ${this.name}, ${this.age}, ${this.job}`)
+// }
+// const personOne = {
+//     name: 'Mike',
+//     age: 19,
+//     job: 'manager'
+
+// }
+
+
+// function bind(person, logFunction){
+//     this.name = person.name;
+//     this.job = person.job;
+//     this.age = person.age;
+//     return logFunction(person);
+// }
+//bind(personOne, logPerson);
