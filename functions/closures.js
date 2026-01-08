@@ -63,24 +63,4 @@ function createSafe(password){
 }
 let mousePass=createSafe('mouse');
 console.log(mousePass('mouse'))
-// Написать функцию bind, которая будет принимать объект с данными человека 
-// и функцию logPerson логирования его в системе
 
-// function logPerson(){
-//     console.log(`Person: ${this.name}, ${this.age}, ${this.job}`)
-// }
-// const personOne = {
-//     name: 'Mike',
-//     age: 19,
-//     job: 'manager'
-
-// }
-
-
-// function bind(person, logFunction){
-//     this.name = person.name;
-//     this.job = person.job;
-//     this.age = person.age;
-//     return logFunction(person);
-// }
-//bind(personOne, logPerson);
