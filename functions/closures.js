@@ -85,3 +85,27 @@ function bind(pers, func){
 let persin = bind(personOne, logPerson);
 persin()
 
+/**
+* Нужно написать функцию, которая принимает число N и возвращает функцию,
+* вызов которой первые N раз возвращает 'yes', а потом – 'no'.
+*/
+function canGetCount(n) {
+// code here
+let count = 1;
+
+return function(){
+    if (count <= n){
+         count+=1
+        return 'yes'
+        
+    }else{ 
+        count+=1
+        return 'no'
+    }
+}
+}
+
+const getOne = canGetCount(2);
+console.log(getOne()) 
+console.log(getOne()) 
+console.log(getOne()) 
