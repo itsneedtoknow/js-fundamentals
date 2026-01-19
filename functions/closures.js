@@ -109,3 +109,14 @@ const getOne = canGetCount(2);
 console.log(getOne()) 
 console.log(getOne()) 
 console.log(getOne()) 
+
+
+//Напишите функцию sum, которая работает таким образом: sum(a)(b) = a+b
+
+function sum(a){
+    return function(b){
+        return a + b
+    }
+}
+let ssum = sum(1);
+console.log(ssum(2))
