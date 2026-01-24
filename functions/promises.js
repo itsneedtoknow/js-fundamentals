@@ -32,3 +32,20 @@ function randomDelay(){
 randomDelay()
   .then(res => console.log(res))
   .catch(err => console.error(err));
+
+//   У вас есть функция delay(ms), которую вы уже написали.
+// Используя её, выведите в консоль число 1 через 1 секунду, затем число 2 еще через 2 секунды, и число 3 еще через 3 секунды.
+// Требование: Не используйте «ад колбэков» (вложенность). Используйте цепочку .then().
+
+delay(1000)
+.then(()=>{
+    console.log(1);
+    return delay(2000);
+})
+.then(()=>{
+    console.log(2);
+    return delay(3000);
+})
+.then(()=>{
+    console.log(3);
+})
