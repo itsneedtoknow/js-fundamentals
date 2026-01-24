@@ -148,3 +148,27 @@ function checkDetailedStatus(id){
 checkInitialStatus()
 .then((id)=>checkDetailedStatus(id))
 .then((stat)=>console.log(stat))
+
+
+function checkAge(age){
+    return new Promise((res, rej)=>
+    {if(age < 18){
+        setTimeout(()=>rej("Слишком молод"), 500)
+    }else if(age >= 18){
+        setTimeout(()=>res("Доступ разрешен"), 500)
+    }
+    })
+    
+}
+
+function getSecretData(status){
+    return new Promise((res, rej)=>
+    setTimeout(()=>res(`Вот ваши секретные данные для статуса: + ${status}`), 500)
+)
+}
+checkAge(20)
+.then(status=>getSecretData(status))
+.then(finalData => {
+        console.log(finalData); 
+    })
+.catch(err=> console.log(err))
