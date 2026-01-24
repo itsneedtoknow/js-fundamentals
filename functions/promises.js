@@ -122,14 +122,29 @@ getUser(1)
 
 
 function getTodoIds(){
-    return new Promise(()=>
+    return new Promise((resolve)=>
         setTimeout(()=>resolve([1, 2, 3]), 500))
 }
 function getTodoById(id){
-    return new Promise(()=>
+    return new Promise((resolve)=>
         setTimeout(()=>resolve({ id, title: "Дело №" + id }), 500))
 }
 getTodoIds()
 .then((data)=> getTodoById(data[0]))
 .then(dataZero=>console.log(dataZero.title))
 .catch(err => console.log(err))
+
+
+function checkInitialStatus(){
+    return new Promise((resolve, reject)=>
+        setTimeout(()=>resolve('123'), 500)
+        )
+}
+function checkDetailedStatus(id){
+    return new Promise((resolve, reject)=>
+        setTimeout(()=>resolve(`Статус заявки ${id}: Одобрено`), 500)
+        )
+}
+checkInitialStatus()
+.then((id)=>checkDetailedStatus(id))
+.then((stat)=>console.log(stat))
