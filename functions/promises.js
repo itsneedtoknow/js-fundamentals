@@ -1,0 +1,34 @@
+//Встроенная функция setTimeout использует колбэк-функции. 
+// Создайте альтернативу, использующую промисы.
+//Функция delay(ms) должна возвращать промис, 
+// который перейдёт в состояние «выполнен» через ms миллисекунд, 
+// так чтобы мы могли добавить к нему .then:
+
+function delay(ms){
+    return new Promise(function(resolve, reject){
+        setTimeout(()=>resolve('done'), ms)
+    }
+)
+}
+// Напишите функцию randomDelay(), которая возвращает промис.
+//С вероятностью 50% промис должен выполниться успешно через 1 секунду с текстом "Успех".
+//С вероятностью 50% промис должен завершиться ошибкой через 1 секунду с текстом "Ошибка".
+
+function randomDelay(){
+    return new Promise(
+        function(resolve, reject){
+            let i = Math.random();
+            setTimeout(()=>{
+                if(i > 0.5){
+                                resolve('success')
+                            }else{
+                                    reject('fail')
+                            }
+            }, 1000)
+            
+        }
+    )
+}
+randomDelay()
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
