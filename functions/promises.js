@@ -63,3 +63,32 @@ fetch('https://jsonplaceholder.typicode.com/users/1')
 .catch(err=>{
     console.log(err)
 })
+// Напишите функцию fetchAll(urls), которая принимает массив ссылок.
+//Используя map и fetch, создайте массив промисов.
+//Используйте Promise.all, чтобы дождаться загрузки всех данных.
+//Верните (или выведите) массив имен пользователей (name), полученных по этим ссылкам.
+function fetchAll(urls){
+    let arrayOfPromises =[]
+    urls.map(item=>{
+
+        arrayOfPromises.push(fetch(item))
+    })
+    Promise.all(arrayOfPromises)
+    .then(responses => {return Promise.all(responses.map(item =>{
+       return  item.json()
+    }))}
+)
+    .then(data => {
+        let names= data.map(item=>{
+           return item.name
+        })
+        console.log(names)
+    })
+    
+}
+const urlss = [
+  'https://jsonplaceholder.typicode.com/users/2',
+  'https://jsonplaceholder.typicode.com/users/3',
+  'https://jsonplaceholder.typicode.com/users/3'
+];
+fetchAll(urlss)
