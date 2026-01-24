@@ -49,3 +49,17 @@ delay(1000)
 .then(()=>{
     console.log(3);
 })
+
+// Используя браузерное API fetch, сделайте запрос к JSONPlaceholder: https://jsonplaceholder.typicode.com.
+// Получите объект пользователя.
+// Выведите в консоль только его имя (name).
+// Если запрос не удался (например, выключен интернет), выведите сообщение: "Произошла ошибка запроса".
+// Подсказка: Помните, что fetch возвращает промис, а метод .json() — тоже промис.
+fetch('https://jsonplaceholder.typicode.com/users/1')
+.then(response => {return response.json()})
+.then(data =>{
+    console.log(data.name);
+})
+.catch(err=>{
+    console.log(err)
+})
