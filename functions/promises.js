@@ -120,3 +120,16 @@ getUser(1)
 .then((user)=>getDashboard(user))
 .then((userrole)=>console.log(userrole))
 
+
+function getTodoIds(){
+    return new Promise(()=>
+        setTimeout(()=>resolve([1, 2, 3]), 500))
+}
+function getTodoById(id){
+    return new Promise(()=>
+        setTimeout(()=>resolve({ id, title: "Дело №" + id }), 500))
+}
+getTodoIds()
+.then((data)=> getTodoById(data[0]))
+.then(dataZero=>console.log(dataZero.title))
+.catch(err => console.log(err))
