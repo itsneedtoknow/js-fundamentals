@@ -92,3 +92,31 @@ const urlss = [
   'https://jsonplaceholder.typicode.com/users/3'
 ];
 fetchAll(urlss)
+
+function getUser(id){
+    return new Promise(function(resolve){
+        if( id=== 1){
+            setTimeout(()=>{
+                resolve( {id: 1, name: 'Admin', role: 'admin'})
+            }, 1000)
+            
+        }else{
+            resolve( {id: id, name: 'Guest', role: 'user'})
+        }
+    })
+}
+function getDashboard(user){
+    return new Promise(function(resolve, reject){
+    if(user.role === 'admin'){
+        setTimeout(()=>{
+           resolve("Данные админ-панели") ;
+        }, 1000)
+    }else if(!user.role === 'admin'){
+        reject("Доступ запрещен");
+    }
+})
+}
+getUser(1)
+.then((user)=>getDashboard(user))
+.then((userrole)=>console.log(userrole))
+
