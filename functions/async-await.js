@@ -129,3 +129,27 @@ async function getToDoList(id){
 }
 getToDoList(1)
 .then(todo=>console.log(todo.title))
+
+async function registerUser(userData){
+    try{
+       let response = await fetch('https://jsonplaceholder.typicode.com/posts',{
+    method: 'POST',
+    body: JSON.stringify(userData),
+    headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+    });
+    if(response.status ==201){
+        return  response.json();
+
+    }else{
+        throw new Error('Ошибка регистрации')
+    }
+    }catch(err){
+        console.log(err)
+    }
+
+    }
+ registerUser({ name: "Admin", job: "Fullstack" })
+ .then(res=>console.log(res))
+ .catch(err=> console.log(err))
