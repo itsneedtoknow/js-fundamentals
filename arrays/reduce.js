@@ -28,3 +28,24 @@ let paidEvents = events.filter(item => item.price > 0);
 let paidEventsTitles = paidEvents.map(item => item.title);
 let paidEventsTotal = paidEvents.reduce((sum, item)=>sum + item.price, 0);
 
+/*Задача:
+У тебя есть массив строк. Тебе нужно вернуть объект, 
+где ключом будет строка, а значением — сколько раз она встретилась в массиве. */
+
+const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+
+function countFruits(arr) {
+  
+   return arr.reduce(((sum, item) =>{
+      if(!sum[item]){
+        sum[item] = 0;
+      }
+      sum[item]++;
+      return sum;
+    } ),{})
+  
+  
+  //console.log(fruitKeys);
+}
+
+console.log(countFruits(fruits)); 
