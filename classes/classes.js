@@ -90,3 +90,26 @@
       console.log(`From: ${this.department}`)
     }
   }
+  /*Перепиши этот класс в обычную функцию-конструктор и добавь метод через прототип.
+
+  class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHi() {
+    console.log(`Hi, I am ${this.name}`);
+  }
+}
+
+ */
+function CreatePerson(name){
+  this.name = name;
+console.log(name)
+
+}
+CreatePerson.prototype.sayHi = function(){
+console.log(`Hi, I am ${this.name}`);
+}
+let Vi = new CreatePerson('Vi');
+Vi.sayHi()
