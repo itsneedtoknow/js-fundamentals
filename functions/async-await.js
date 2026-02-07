@@ -153,3 +153,33 @@ async function registerUser(userData){
  registerUser({ name: "Admin", job: "Fullstack" })
  .then(res=>console.log(res))
  .catch(err=> console.log(err))
+
+/*Перепиши этот код на async/await. Обязательно добавь try...catch, чтобы программа не "падала" при ошибке сети.
+
+ function getUserData() {
+  return fetch('https://jsonplaceholder.typicode.com')
+    .then(res => res.json())
+    .then(user => console.log(user.name))
+    .catch(err => console.error("Ошибка:", err));
+}
+ */
+async function getUserData() {
+    try{
+    let response = await fetch('https://jsonplaceholder.typicode.com/users/2');
+    let user = await response.json();
+    console.log(user.name)
+    }catch(e){
+        console.error(e)
+    }
+    
+}
+getUserData()
+
+function capitalize(str) {
+  if (!str) return str;
+  let firstLetter = str.split('')[0].toUpperCase();
+  let restWord = str.slice([1])
+  let upperWord = `${firstLetter}${restWord}`
+  console.log(upperWord)
+}
+capitalize('рыжик')
